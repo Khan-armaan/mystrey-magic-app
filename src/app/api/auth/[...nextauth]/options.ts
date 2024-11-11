@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
             token.username = user.username
         }
         return token 
-    },
+    }, // user ke andar kitna data ye dfine karnge hum yaha se 
     async session({session, token} : any){ // ab user information token ke andar h to session ko token assign kr diya 
         if(token){
            session.user = session.user || {}; // if not found give empty object  

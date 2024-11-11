@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "./globals.css";  // very important have to import global css file 
 import AuthProvider from "@/context/authProviders";
 import { Toaster } from "@/components/ui/toaster"
 

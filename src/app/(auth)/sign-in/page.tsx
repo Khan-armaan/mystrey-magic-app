@@ -96,16 +96,16 @@ const Page = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isSubmitting}>  {/* Disable button while submitting */}
-              {
-                // Show a loading spinner if isSubmitting is true, otherwise display 'Signup'
-                isSubmitting ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
-                  </>
-                ) : ('SignIn')
-              }
-            </Button>
+           <div className="flex justify-center">  <Button type="submit" disabled={isSubmitting}>  {/* Disable button while submitting */}
+            {
+              // Show a loading spinner if isSubmitting is true, otherwise display 'Signup'
+              isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
+                </>
+              ) : ('Sign In')
+            }
+          </Button></div>
           </form>
         </FormProvider>
         <div className="text-center mt-4">
