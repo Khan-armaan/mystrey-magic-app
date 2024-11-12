@@ -76,7 +76,7 @@ export async function GET (){
            message: 'not authenticated'
        }, { status: 401 })
     }
-   const userId =  user._id;
+   const userId =  user._id; // since username is also unique so we can find by it 
 
     try{
         const foundUser = await UserModel.findById(userId)
@@ -89,10 +89,10 @@ export async function GET (){
         }
         return Response.json({
           success: true,
-          isAcceptingMessages: foundUser.isAcceptingMessage
+          isAcceptingMessage: foundUser.isAcceptingMessage
       }, { status: 200 })
     } catch(error){
-        console.log("failed to update user to accepting message  accept messages")
+        console.log("failed to know the user status ")
         return  Response.json({
             success: false,
             message: "Error in gettting messages  acceptance status"

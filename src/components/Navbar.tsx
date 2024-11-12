@@ -18,7 +18,7 @@ const Navbar = () => {
           <a className='text-xl font-bold mb-4 md:mb-0' href='#'>Mystry Message</a>
           { // first check karennge ki session h ie authennticated h ya nhi 
               session ? ( <>
-              <span className='mr-4'>Welcome, {user?.username || user?.email}</span><Button className='w-full md:w-auto' onClick={() => {signOut()}} >Logout</Button>
+              <span className='mr-4'>Welcome, {user?.username || user?.email}</span><Button className='w-full md:w-auto' onClick={() => (signOut())} >Logout</Button>
               </>) 
               : ( <Link  href='/sign-in'> <Button className='w-full md:w-auto'>Login</Button> </Link> )
           }

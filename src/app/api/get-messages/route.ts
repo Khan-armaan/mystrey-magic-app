@@ -13,7 +13,7 @@ export async function GET (){
     // code to find out hte user which user
     const session = await getServerSession(authOptions)
     const user: User =   session?.user as User // assert 
-
+     console.log(user)
     if (!session || !session.user){
        return Response.json({
            success: false,
@@ -22,10 +22,11 @@ export async function GET (){
     }
     //since userid is a string to do create some issues in agggregate pipeline 
    // how to write aggregation pipeline 
-const userId = user._id
+   const userId = new mongoose.Types.ObjectId(user?._id);
+
    try {
     const user = await UserModel.aggregate([
-        {$match: {id: userId}},
+        {$match: {_id: userId}},
         {$unwind: '$messages'},
         {$sort: {'messages.createdAt': -1}}, // in descending order 
         {$group: {_id: '$_id', messages: {$push: '$messages'}}}

@@ -41,11 +41,16 @@ const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
         title: response.data?.message
      })
      onMessageDelete(message._id as string)
+
     }
+    const msg = JSON.stringify(message)
   return (
                 <Card>
                 <CardHeader>
-                <CardTitle>Card Title</CardTitle>
+                <CardContent>
+              <p>{message.content}</p>
+              <p>{new Date(message.createdAt).toLocaleString()}</p>
+              </CardContent>
                 <AlertDialog>
             <AlertDialogTrigger asChild>
                 <Button variant="destructive"><X className='w-5 h-5'/></Button>
@@ -64,11 +69,9 @@ const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
                 </AlertDialogFooter>
             </AlertDialogContent>
             </AlertDialog>
-                <CardDescription>Card Description</CardDescription>
+               
                 </CardHeader>
-                <CardContent>
-                <p>Card Content</p>
-                </CardContent>
+               
                 
             </Card>
   

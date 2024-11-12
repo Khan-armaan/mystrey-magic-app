@@ -62,7 +62,7 @@ const Page = () => {
         setIsCheckingUsername(true);
         setUsernameMessage('');
         try {
-          const response = await axios.get(`/api/check-username-unique?username=${username}`);
+          const response = await axios.get(`/api/check-username-unique?username=${username}`); // way to send 
           console.log(response); // Logging the response from the backend
           //we can use let message = response.data.message
           // setUsernameMessage(message) in case the below method will throw any errors
