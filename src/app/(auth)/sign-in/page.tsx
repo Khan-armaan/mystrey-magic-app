@@ -47,6 +47,7 @@ const Page = () => {
     password: data.password
    })
    if (reseult?.error) {
+    setIsSubmitting(false)
     toast({
       title: 'Login failed',
       description: "Incorrect Username or password",
@@ -54,6 +55,7 @@ const Page = () => {
     })
    }
    if (reseult?.url) { // sign in pe hame url milta h
+    setIsSubmitting(false)
     router.replace('/dashboard')
    }
   };

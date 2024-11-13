@@ -45,37 +45,42 @@ const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
     }
     const msg = JSON.stringify(message)
   return (
-                <Card>
-                <CardHeader>
-                <CardContent>
-              <p>{message.content}</p>
-              <p>{new Date(message.createdAt).toLocaleString()}</p>
-              </CardContent>
-                <AlertDialog>
+    <Card className="relative p-4">
+      <CardHeader>
+        <CardContent>
+          <p>{message.content}</p>
+          <p className="text-xs text-muted-foreground">
+            {new Date(message.createdAt).toLocaleString()}
+          </p>
+        </CardContent>
+
+        {/* Positioned Delete Button */}
+        <div className="absolute top-4 right-4">
+          <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="destructive"><X className='w-5 h-5'/></Button>
+              <Button variant="destructive" size="sm" className="w-auto p-2">
+                <X className="h-4 w-4" />
+              </Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
-                <AlertDialogHeader>
+              <AlertDialogHeader>
                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                 <AlertDialogDescription>
-                    This action cannot be undone. This will permanently delete your
-                    account and remove your data from our servers.
+                  This action cannot be undone. This will permanently delete your
+                  message and remove it from our servers.
                 </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={handleDeleteConfirm}> Continue</AlertDialogAction>
-                </AlertDialogFooter>
+                <AlertDialogAction onClick={handleDeleteConfirm}>Continue</AlertDialogAction>
+              </AlertDialogFooter>
             </AlertDialogContent>
-            </AlertDialog>
-               
-                </CardHeader>
-               
-                
-            </Card>
+          </AlertDialog>
+        </div>
+      </CardHeader>
+    </Card>
+  );
   
-  )
 }
 
 export default MessageCard

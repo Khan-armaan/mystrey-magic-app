@@ -61,11 +61,11 @@ export async function POST(request: Request) {
         password: hashedPassword,
         verifycode,
         verifyCodeExpiry: expiryDate,
-        isVerified: false,
-        isAcceptingMessage: true,
+        isVerified: true,
+        isAcceptingMessage: false,
         messages: [],
       });
-      await newUser.save();
+      await newUser.save();  // have to check 
     }
 
     // Send verification email
