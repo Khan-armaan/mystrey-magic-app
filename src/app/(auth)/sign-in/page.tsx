@@ -3,13 +3,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form"; // FormProvider used to wrap the form fields
 import * as z from "zod";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import axios, { AxiosError } from 'axios';
-import { useDebounceCallback } from 'usehooks-ts';
+import {  useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import { SignUpSchema } from "@/schemas/signUpSchema";
-import { ApiResponse } from "@/types/ApiResponse";
 import { FormControl,  FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -41,6 +37,8 @@ const Page = () => {
   // Taking advantage of react-hook-form for managing form data
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
     setIsSubmitting(true)
+
+    //sign in using next auth 
   const reseult =   await signIn('credentials', { // signin in using the next auth using the  credentials 
     redirect: false,
     identifier: data.identifier,

@@ -4,10 +4,6 @@ import "./globals.css";  // very important have to import global css file
 import AuthProvider from "@/context/authProviders";
 import { Toaster } from "@/components/ui/toaster"
 
-
-
-
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

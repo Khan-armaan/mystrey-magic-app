@@ -10,8 +10,8 @@ export async function  sendVerificationEmail(
     try{
         console.log(email, username, verifycode)
         const { data, error } = await resend.emails.send({
-            from: 'onboarding@resend.dev',
-            to: email,
+            from: 'Acme <onboarding@resend.dev>',
+            to: 'khanedu101@gmail.com',
             subject: 'Mystry message | Verfication code',
             react: VerificationEmail({username, otp: verifycode}),
           });

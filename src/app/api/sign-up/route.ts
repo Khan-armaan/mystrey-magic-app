@@ -29,11 +29,11 @@ export async function POST(request: Request) {
     const existingUserByEmail = await UserModel.findOne({ email });
 
     // Generate verification code
-    const verifycode = Math.floor(100000 + Math.random() * 900000).toString();
+    const verifycode = Math.floor(100000 + Math.random() * 900000).toString(); // statement to generate otp
 
     if (existingUserByEmail) {
       // User exists but may not be verified
-      if (existingUserByEmail.isVerified) {
+     if (existingUserByEmail.isVerified) {
         return Response.json(
           {
             success: false,

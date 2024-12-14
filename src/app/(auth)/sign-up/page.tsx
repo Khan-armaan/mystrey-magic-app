@@ -10,7 +10,7 @@ import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { SignUpSchema } from "@/schemas/signUpSchema";
 import { ApiResponse } from "@/types/ApiResponse";
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { FormControl,  FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -55,7 +55,7 @@ const Page = () => {
     }
   });
 
-  // Check if the username exists or not
+  // Check if the username exists or not 
   useEffect(() => {
     const checkUsernameUnique = async () => { // This process can be done in a separate custom hook
       if (username) { // Using the debounced value of the username to limit API calls
@@ -87,8 +87,8 @@ const Page = () => {
         title: 'Success',
         description: response.data.message
       });
-      router.replace(`/verify/${username}`);  //route to the verify  page which have the username in the query parameter 
-      
+    //  router.replace(`/verify/${username}`);  //route to the verify  page which have the username in the query parameter 
+      router.replace('/sign-in')
     } catch (error) {
       console.log("Error in user signup", error); // Logging any error that occurs during signup
       const axiosError = error as AxiosError<ApiResponse>;

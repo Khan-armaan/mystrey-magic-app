@@ -2,10 +2,10 @@ import React from 'react'
 import {
     Card,
     CardContent,
-    CardDescription,
-    CardFooter,
+  
+  
     CardHeader,
-    CardTitle,
+   
   } from "@/components/ui/card"
   import {
     AlertDialog,
@@ -25,7 +25,7 @@ import { useToast } from '@/hooks/use-toast'
 import axios from 'axios'
 
 import { ApiResponse } from '@/types/ApiResponse'
-import { any } from 'zod'
+
 
 
 type MessageCardProps = {
@@ -58,7 +58,7 @@ const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
         <div className="absolute top-4 right-4">
           <AlertDialog>
             <AlertDialogTrigger asChild>
-              <Button variant="destructive" size="sm" className="w-auto p-2">
+              <Button variant="destructive" size="lg" className="w-auto p-2">
                 <X className="h-4 w-4" />
               </Button>
             </AlertDialogTrigger>

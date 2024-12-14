@@ -3,7 +3,7 @@ import { authOptions } from "../auth/[...nextauth]/options";
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
 import { User } from "next-auth"; // not the next auth user 
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 
 export async function GET (){

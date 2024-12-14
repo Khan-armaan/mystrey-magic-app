@@ -59,7 +59,7 @@ try {
 }
 
 
- }, [setValue]) // when the setValue is changes useCallback consider the funciuton to be changed
+ }, [setValue, toast]) // when the setValue is changes useCallback consider the funciuton to be changed
 
 
 // function to fetch all the messages of the user useCallback is basically used to define in for a function
@@ -88,7 +88,7 @@ const fetchMessages = useCallback ( async(refresh : boolean = false) => {
     setIsLoading(false)
     setIsSwitchLoading(false)  // the switch is loading is set to be false 
   } 
-}, [setIsLoading, setMessages])
+}, [setIsLoading, setMessages, toast])
 
 // we cannot store useEffect in a variable just like useCallback
 useEffect(() => {
@@ -98,7 +98,7 @@ useEffect(() => {
   fetchAcceptMessage()  // fetch the isAccepting messages or not 
   
 
-},[session, setValue, fetchMessages])
+},[session, setValue, fetchMessages, fetchAcceptMessage])
 
 //handle switch change
 const handleSwitchChange = async() => {

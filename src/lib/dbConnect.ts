@@ -1,7 +1,7 @@
- import { log } from "console";
+
 import mongoose from "mongoose";
 
- type ConnectionOject = {
+ type ConnectionOject = {// it is a only a type have to create a object or variableto assign this type to  
     isConnected? :number
  }
 
@@ -16,8 +16,7 @@ import mongoose from "mongoose";
     }
     try{
        const db = await mongoose.connect(process.env.MONGODB_URI || "") //there are also option in mongodb
-        console.log(db)
-
+      
         connection.isConnected = db.connections[0].readyState
 
         console.log("DB Connected Succesfully");
@@ -28,4 +27,4 @@ import mongoose from "mongoose";
     }
  }
 
- export default dbConnect;
+ export default dbConnect;  // exported the function default 
