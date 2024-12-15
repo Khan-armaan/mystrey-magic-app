@@ -2,6 +2,7 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic'
 // api to check the status of use if he is accpeting messages or not 
 export  async function GET(req: Request){
     await dbConnect()

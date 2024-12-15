@@ -44,6 +44,7 @@ const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
 
     }
     const msg = JSON.stringify(message)
+    console.log(msg)
   return (
     <Card className="relative p-4">
       <CardHeader>

@@ -43,7 +43,7 @@ export async function DELETE (request: Request, {params}: {params  // to take th
     },{status: 200})    
 
    } catch (error) {
-    console.log("Error in deleting route", Error)
+    console.log("Error in deleting route", error)
     return Response.json({
         success: false,
         message: "Error deleting message"

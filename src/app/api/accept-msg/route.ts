@@ -55,7 +55,7 @@ export async function POST(request: Request){ // this function changes the accep
     )
 
 } catch(error ) {
-    console.log("failed to update user status to accept messages")
+    console.log("failed to update user status to accept messages", error)
     return  Response.json({
         success: false,
         message: "faild to update user stats to accept messages"
@@ -92,7 +92,7 @@ export async function GET (){
           isAcceptingMessage: foundUser.isAcceptingMessage
       }, { status: 200 })
     } catch(error){
-        console.log("failed to know the user status ")
+        console.log("failed to know the user status ", error)
         return  Response.json({
             success: false,
             message: "Error in gettting messages  acceptance status"

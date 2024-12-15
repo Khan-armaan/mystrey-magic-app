@@ -9,6 +9,7 @@ import { Loader2 } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import React, { useCallback, useState } from 'react';
 
+
 const UserPage = () => {
   const params = useParams();
   const username = params.username; // Extract the 'username' from the URL
@@ -22,7 +23,7 @@ const UserPage = () => {
   const status = useCallback(async() => {
    const response = await axios.get(`/api/status?username=${username}`)
    setisUserAcceptingMsg(response.data.isAcceptingMessage)
-  },[message])
+  },[username])
   
   //funciton to send message
   const sendMsg = async() => {
@@ -41,9 +42,10 @@ const UserPage = () => {
           content: message
         })
         setResponse(res.data.message )
+      
         toast({
           title: 'response',
-          description: res.data.message
+          description: response
         })
       } catch (error) {
         const axiosError = error as AxiosError<ApiResponse>
